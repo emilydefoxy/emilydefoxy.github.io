@@ -95,8 +95,8 @@
         snake = [{ x: 8, y: 8 }];
         direction = "RIGHT";
         food = {
-          x: Math.floor(Math.random() * 16),
-          y: Math.floor(Math.random() * 16),
+          x: Math.floor(Math.random() * 13) + 1,
+          y: Math.floor(Math.random() * 13) + 1,
         };
         score = 0;
         document.getElementById("score").innerText = "Điểm: 0";
@@ -147,10 +147,10 @@
 
         // Kiểm tra va chạm
         if (
-          head.x < 0 ||
-          head.x >= 16 ||
-          head.y < 0 ||
-          head.y >= 16 ||
+          head.x < 1 ||
+          head.x >= 15 ||
+          head.y < 1 ||
+          head.y >= 15 ||
           collision(head, snake)
         ) {
           clearInterval(game);
@@ -165,8 +165,8 @@
           score++;
           document.getElementById("score").innerText = "Điểm: " + score;
           food = {
-            x: Math.floor(Math.random() * 16),
-            y: Math.floor(Math.random() * 16),
+            x: Math.floor(Math.random() * 13) + 1,
+            y: Math.floor(Math.random() * 13) + 1,
           };
         } else {
           snake.pop();
