@@ -1,34 +1,82 @@
-<div style="margin-top: 2em">
-  <h2>Chơi Kéo - Búa - Bao</h2>
-  <label
-    >Bạn chọn:
-    <select id="player-choice">
-      <option value="scissors">Kéo</option>
-      <option value="rock">Búa</option>
-      <option value="paper">Bao</option>
-    </select>
-  </label>
-  <button onclick="playGame()">Chơi</button>
-  <p id="result"></p>
-</div>
-<script>
-  function playGame() {
-    const choices = ["scissors", "rock", "paper"];
-    const player = document.getElementById("player-choice").value;
-    const computer = choices[Math.floor(Math.random() * choices.length)];
-    let result = "Máy chọn: " + computer + "<br>";
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trò chơi Bắt Mèo Con 🐱</title>
+    <style>
+      body {
+        background: #ffe4ec;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+      h1 {
+        color: #ff69b4;
+        margin-bottom: 10px;
+      }
+      #score {
+        font-size: 1.5em;
+        color: #ff69b4;
+        margin-bottom: 30px;
+      }
+      #game-area {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        background: #fff0f6;
+        border: 4px solid #ffb6c1;
+        border-radius: 30px;
+        box-shadow: 0 4px 20px #ffb6c1;
+        overflow: hidden;
+      }
+      #cat {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        transition: top 0.2s, left 0.2s;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bắt Mèo Con 🐱</h1>
+    <div id="score">Điểm: 0</div>
+    <div id="game-area">
+      <img
+        id="cat"
+        src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png"
+        alt="Mèo con"
+      />
+    </div>
+    <script>
+      const cat = document.getElementById("cat");
+      const scoreDiv = document.getElementById("score");
+      const gameArea = document.getElementById("game-area");
+      let score = 0;
 
-    if (player === computer) {
-      result += "Hòa!";
-    } else if (
-      (player === "scissors" && computer === "paper") ||
-      (player === "rock" && computer === "scissors") ||
-      (player === "paper" && computer === "rock")
-    ) {
-      result += "Bạn thắng!";
-    } else {
-      result += "Bạn thua!";
-    }
-    document.getElementById("result").innerHTML = result;
-  }
-</script>
+      function randomPosition() {
+        const areaRect = gameArea.getBoundingClientRect();
+        const maxLeft = gameArea.clientWidth - cat.clientWidth;
+        const maxTop = gameArea.clientHeight - cat.clientHeight;
+        const left = Math.random() * maxLeft;
+        const top = Math.random() * maxTop;
+        cat.style.left = left + "px";
+        cat.style.top = top + "px";
+      }
+
+      cat.addEventListener("click", () => {
+        score++;
+        scoreDiv.textContent = "Điểm: " + score;
+        randomPosition();
+      });
+
+      // Đặt vị trí ngẫu nhiên ban đầu
+      window.onload = randomPosition;
+    </script>
+  </body>
+</html>
