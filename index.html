@@ -159,5 +159,41 @@
         <li><strong>Skills:</strong> Dancing, eating, playing games</li>
       </ul>
     </div>
+    <!-- Bắt đầu trò chơi kéo-búa-bao -->
+    <div style="margin-top: 2em">
+      <h2>Chơi Kéo - Búa - Bao</h2>
+      <label
+        >Bạn chọn:
+        <select id="player-choice">
+          <option value="scissors">Kéo</option>
+          <option value="rock">Búa</option>
+          <option value="paper">Bao</option>
+        </select>
+      </label>
+      <button onclick="playGame()">Chơi</button>
+      <p id="result"></p>
+    </div>
+    <script>
+      function playGame() {
+        const choices = ["scissors", "rock", "paper"];
+        const player = document.getElementById("player-choice").value;
+        const computer = choices[Math.floor(Math.random() * choices.length)];
+        let result = "Máy chọn: " + computer + "<br>";
+
+        if (player === computer) {
+          result += "Hòa!";
+        } else if (
+          (player === "scissors" && computer === "paper") ||
+          (player === "rock" && computer === "scissors") ||
+          (player === "paper" && computer === "rock")
+        ) {
+          result += "Bạn thắng!";
+        } else {
+          result += "Bạn thua!";
+        }
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+    <!-- Kết thúc trò chơi kéo-búa-bao -->
   </body>
 </html>
