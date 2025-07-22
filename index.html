@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cute Pink Cat Website</title>
+    <style>
+      body {
+        background: linear-gradient(135deg, #ffb6e6 0%, #ffe6fa 100%);
+        min-height: 100vh;
+        margin: 0;
+        font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      h1 {
+        color: #ff69b4;
+        font-size: 3rem;
+        margin-bottom: 0.5em;
+        text-shadow: 2px 2px 8px #fff0f7;
+      }
+      .cat-container {
+        background: #fff;
+        border-radius: 2em;
+        box-shadow: 0 8px 32px 0 rgba(255, 182, 230, 0.2);
+        padding: 2em 3em;
+        margin-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.3s;
+      }
+      .cat-container:hover {
+        box-shadow: 0 12px 40px 0 rgba(255, 105, 180, 0.3);
+      }
+      .cat-svg {
+        width: 220px;
+        height: 220px;
+        margin-bottom: 1em;
+      }
+      .caption {
+        color: #ff69b4;
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      .info-container {
+        background: #fff0fa;
+        border-radius: 1em;
+        box-shadow: 0 4px 16px 0 rgba(255, 182, 230, 0.15);
+        padding: 1.5em 2em;
+        color: #d63384;
+        font-size: 1.1rem;
+        margin-bottom: 2em;
+        max-width: 350px;
+        text-align: left;
+      }
+      .info-container h2 {
+        color: #ff69b4;
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-size: 2rem;
+        text-align: center;
+      }
+      .info-container ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .info-container li {
+        margin-bottom: 0.5em;
+      }
+      .info-container strong {
+        color: #ff69b4;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+        .cat-container {
+          padding: 1em;
+        }
+        .cat-svg {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to my world!</h1>
+    <h1>I'm Emily</h1>
+    <h1>Nice to meet you</h1>
+    <div class="cat-container">
+      <svg
+        class="cat-svg"
+        viewBox="0 0 220 220"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Ears -->
+        <polygon
+          points="40,60 60,10 80,60"
+          fill="#fff"
+          stroke="#ff69b4"
+          stroke-width="4"
+        />
+        <polygon
+          points="180,60 200,10 160,60"
+          fill="#fff"
+          stroke="#ff69b4"
+          stroke-width="4"
+        />
+        <!-- Head -->
+        <ellipse
+          cx="110"
+          cy="110"
+          rx="80"
+          ry="80"
+          fill="#fff"
+          stroke="#ff69b4"
+          stroke-width="5"
+        />
+        <!-- Eyes -->
+        <ellipse cx="80" cy="110" rx="12" ry="18" fill="#222" />
+        <ellipse cx="140" cy="110" rx="12" ry="18" fill="#222" />
+        <!-- Nose -->
+        <ellipse cx="110" cy="140" rx="8" ry="5" fill="#ffb6e6" />
+        <!-- Mouth -->
+        <path
+          d="M102 150 Q110 160 118 150"
+          stroke="#ff69b4"
+          stroke-width="3"
+          fill="none"
+        />
+        <!-- Whiskers -->
+        <path d="M40 130 Q70 135 80 120" stroke="#ff69b4" stroke-width="3" />
+        <path d="M40 150 Q70 145 80 130" stroke="#ff69b4" stroke-width="3" />
+        <path d="M180 130 Q150 135 140 120" stroke="#ff69b4" stroke-width="3" />
+        <path d="M180 150 Q150 145 140 130" stroke="#ff69b4" stroke-width="3" />
+        <!-- Blush -->
+        <ellipse cx="70" cy="140" rx="10" ry="5" fill="#ffb6e6" />
+        <ellipse cx="150" cy="140" rx="10" ry="5" fill="#ffb6e6" />
+      </svg>
+      <div class="caption">Meow! I'm a cute white cat!</div>
+    </div>
+    <div class="info-container">
+      <h2>About Me</h2>
+      <ul>
+        <li><strong>Name:</strong> Emily</li>
+        <li><strong>Age:</strong> 19</li>
+        <li><strong>Location:</strong> Vietnam</li>
+        <li>
+          <strong>Hobbies:</strong> Reading books, animals, listening to music,
+          cooking
+        </li>
+        <li><strong>Skills:</strong> Dancing, eating, playing games</li>
+      </ul>
+    </div>
+  </body>
+</html>
