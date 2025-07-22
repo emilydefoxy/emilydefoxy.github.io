@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cute Pink Cat Website</title>
+    <title>Emily & Snake Game</title>
     <style>
       body {
-        background: linear-gradient(135deg, #ffb6e6 0%, #ffe6fa 100%);
+        background: url("flower-garden-cat-cartoon.jpg") center/cover no-repeat,
+          linear-gradient(135deg, #ffb6e6 0%, #ffe6fa 100%);
         min-height: 100vh;
         margin: 0;
         font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+        color: #d63384;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+      }
+      .intro {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 2em;
+        padding: 2em 3em;
+        margin: 2em 0 1em 0;
+        box-shadow: 0 8px 32px 0 rgba(255, 182, 230, 0.2);
+        text-align: center;
       }
       h1 {
         color: #ff69b4;
@@ -21,179 +30,158 @@
         margin-bottom: 0.5em;
         text-shadow: 2px 2px 8px #fff0f7;
       }
-      .cat-container {
-        background: #fff;
-        border-radius: 2em;
-        box-shadow: 0 8px 32px 0 rgba(255, 182, 230, 0.2);
-        padding: 2em 3em;
-        margin-bottom: 2em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: box-shadow 0.3s;
-      }
-      .cat-container:hover {
-        box-shadow: 0 12px 40px 0 rgba(255, 105, 180, 0.3);
-      }
-      .cat-svg {
-        width: 220px;
-        height: 220px;
-        margin-bottom: 1em;
-      }
-      .caption {
-        color: #ff69b4;
-        font-size: 1.5rem;
-        font-weight: bold;
-        letter-spacing: 1px;
-      }
-      .info-container {
-        background: #fff0fa;
+      .snake-container {
+        background: rgba(255, 255, 255, 0.8);
         border-radius: 1em;
+        padding: 1em 2em;
+        margin: 2em 0;
         box-shadow: 0 4px 16px 0 rgba(255, 182, 230, 0.15);
-        padding: 1.5em 2em;
-        color: #d63384;
-        font-size: 1.1rem;
-        margin-bottom: 2em;
-        max-width: 350px;
-        text-align: left;
-      }
-      .info-container h2 {
-        color: #ff69b4;
-        margin-top: 0;
-        margin-bottom: 0.5em;
-        font-size: 2rem;
         text-align: center;
       }
-      .info-container ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+      #snake-canvas {
+        background: #ffe6fa;
+        border: 3px solid #ffb6e6;
+        border-radius: 1em;
+        display: block;
+        margin: 0 auto 1em auto;
       }
-      .info-container li {
-        margin-bottom: 0.5em;
+      .credit {
+        font-size: 0.9em;
+        color: #b48bbd;
+        margin-top: 1em;
       }
-      .info-container strong {
-        color: #ff69b4;
-      }
+      /* Responsive */
       @media (max-width: 600px) {
         h1 {
           font-size: 2rem;
         }
-        .cat-container {
+        .intro,
+        .snake-container {
           padding: 1em;
         }
-        .cat-svg {
-          width: 150px;
-          height: 150px;
+        #snake-canvas {
+          width: 90vw;
+          height: 90vw;
         }
       }
     </style>
   </head>
   <body>
-    <h1>Welcome to my world!</h1>
-    <h1>I'm Emily</h1>
-    <h1>Nice to meet you</h1>
-    <div class="cat-container">
-      <svg
-        class="cat-svg"
-        viewBox="0 0 220 220"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <!-- Ears -->
-        <polygon
-          points="40,60 60,10 80,60"
-          fill="#fff"
-          stroke="#ff69b4"
-          stroke-width="4"
-        />
-        <polygon
-          points="180,60 200,10 160,60"
-          fill="#fff"
-          stroke="#ff69b4"
-          stroke-width="4"
-        />
-        <!-- Head -->
-        <ellipse
-          cx="110"
-          cy="110"
-          rx="80"
-          ry="80"
-          fill="#fff"
-          stroke="#ff69b4"
-          stroke-width="5"
-        />
-        <!-- Eyes -->
-        <ellipse cx="80" cy="110" rx="12" ry="18" fill="#222" />
-        <ellipse cx="140" cy="110" rx="12" ry="18" fill="#222" />
-        <!-- Nose -->
-        <ellipse cx="110" cy="140" rx="8" ry="5" fill="#ffb6e6" />
-        <!-- Mouth -->
-        <path
-          d="M102 150 Q110 160 118 150"
-          stroke="#ff69b4"
-          stroke-width="3"
-          fill="none"
-        />
-        <!-- Whiskers -->
-        <path d="M40 130 Q70 135 80 120" stroke="#ff69b4" stroke-width="3" />
-        <path d="M40 150 Q70 145 80 130" stroke="#ff69b4" stroke-width="3" />
-        <path d="M180 130 Q150 135 140 120" stroke="#ff69b4" stroke-width="3" />
-        <path d="M180 150 Q150 145 140 130" stroke="#ff69b4" stroke-width="3" />
-        <!-- Blush -->
-        <ellipse cx="70" cy="140" rx="10" ry="5" fill="#ffb6e6" />
-        <ellipse cx="150" cy="140" rx="10" ry="5" fill="#ffb6e6" />
-      </svg>
-      <div class="caption">Meow! I'm a cute white cat!</div>
+    <div class="intro">
+      <h1>Xin chào! Mình là Emily 🐱</h1>
+      <p>Chào mừng đến với website của mình.</p>
+      <p>Hãy thử chơi trò chơi rắn săn mồi bên dưới nhé!</p>
     </div>
-    <div class="info-container">
-      <h2>About Me</h2>
-      <ul>
-        <li><strong>Name:</strong> Emily</li>
-        <li><strong>Age:</strong> 19</li>
-        <li><strong>Location:</strong> Vietnam</li>
-        <li>
-          <strong>Hobbies:</strong> Reading books, animals, listening to music,
-          cooking
-        </li>
-        <li><strong>Skills:</strong> Dancing, eating, playing games</li>
-      </ul>
-    </div>
-    <!-- Bắt đầu trò chơi kéo-búa-bao -->
-    <div style="margin-top: 2em">
-      <h2>Chơi Kéo - Búa - Bao</h2>
-      <label
-        >Bạn chọn:
-        <select id="player-choice">
-          <option value="scissors">Kéo</option>
-          <option value="rock">Búa</option>
-          <option value="paper">Bao</option>
-        </select>
-      </label>
-      <button onclick="playGame()">Chơi</button>
-      <p id="result"></p>
-    </div>
-    <script>
-      function playGame() {
-        const choices = ["scissors", "rock", "paper"];
-        const player = document.getElementById("player-choice").value;
-        const computer = choices[Math.floor(Math.random() * choices.length)];
-        let result = "Máy chọn: " + computer + "<br>";
 
-        if (player === computer) {
-          result += "Hòa!";
-        } else if (
-          (player === "scissors" && computer === "paper") ||
-          (player === "rock" && computer === "scissors") ||
-          (player === "paper" && computer === "rock")
-        ) {
-          result += "Bạn thắng!";
-        } else {
-          result += "Bạn thua!";
-        }
-        document.getElementById("result").innerHTML = result;
+    <div class="snake-container">
+      <h2>Trò chơi Rắn Săn Mồi</h2>
+      <canvas id="snake-canvas" width="320" height="320"></canvas>
+      <div>
+        <button onclick="startGame()">Bắt đầu lại</button>
+        <span id="score">Điểm: 0</span>
+      </div>
+    </div>
+
+    <div class="credit">> ></div>
+
+    <script>
+      // Snake game
+      const canvas = document.getElementById("snake-canvas");
+      const ctx = canvas.getContext("2d");
+      const box = 20;
+      let snake, food, direction, score, game;
+
+      function startGame() {
+        snake = [{ x: 8, y: 8 }];
+        direction = "RIGHT";
+        food = {
+          x: Math.floor(Math.random() * 16),
+          y: Math.floor(Math.random() * 16),
+        };
+        score = 0;
+        document.getElementById("score").innerText = "Điểm: 0";
+        if (game) clearInterval(game);
+        game = setInterval(draw, 120);
       }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+        else if (e.key === "ArrowDown" && direction !== "UP")
+          direction = "DOWN";
+        else if (e.key === "ArrowLeft" && direction !== "RIGHT")
+          direction = "LEFT";
+        else if (e.key === "ArrowRight" && direction !== "LEFT")
+          direction = "RIGHT";
+      });
+
+      function draw() {
+        ctx.fillStyle = "#ffe6fa";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Vẽ rắn
+        for (let i = 0; i < snake.length; i++) {
+          ctx.fillStyle = i === 0 ? "#ffb6e6" : "#ff69b4";
+          ctx.fillRect(snake[i].x * box, snake[i].y * box, box, box);
+          ctx.strokeStyle = "#fff";
+          ctx.strokeRect(snake[i].x * box, snake[i].y * box, box, box);
+        }
+
+        // Vẽ thức ăn
+        ctx.fillStyle = "#a3e635";
+        ctx.beginPath();
+        ctx.arc(
+          food.x * box + box / 2,
+          food.y * box + box / 2,
+          box / 2,
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+
+        // Di chuyển rắn
+        let head = { x: snake[0].x, y: snake[0].y };
+        if (direction === "LEFT") head.x--;
+        if (direction === "RIGHT") head.x++;
+        if (direction === "UP") head.y--;
+        if (direction === "DOWN") head.y++;
+
+        // Kiểm tra va chạm
+        if (
+          head.x < 0 ||
+          head.x >= 16 ||
+          head.y < 0 ||
+          head.y >= 16 ||
+          collision(head, snake)
+        ) {
+          clearInterval(game);
+          alert("Game Over! Điểm của bạn: " + score);
+          return;
+        }
+
+        snake.unshift(head);
+
+        // Ăn thức ăn
+        if (head.x === food.x && head.y === food.y) {
+          score++;
+          document.getElementById("score").innerText = "Điểm: " + score;
+          food = {
+            x: Math.floor(Math.random() * 16),
+            y: Math.floor(Math.random() * 16),
+          };
+        } else {
+          snake.pop();
+        }
+      }
+
+      function collision(head, array) {
+        for (let i = 0; i < array.length; i++) {
+          if (head.x === array[i].x && head.y === array[i].y) return true;
+        }
+        return false;
+      }
+
+      // Bắt đầu game khi tải trang
+      window.onload = startGame;
     </script>
-    <!-- Kết thúc trò chơi kéo-búa-bao -->
   </body>
 </html>
